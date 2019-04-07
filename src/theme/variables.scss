@@ -1,0 +1,31 @@
+$font-path: "../assets/fonts";
+$app-direction: ltr;
+
+@import "ionic.globals";
+
+$colors: (
+  primary:    #e71a1a,
+  secondary:  #af2a2a,
+  danger:     #ff5b0f,
+  light:      #ffffff,
+  dark:       #000000
+);
+
+//styling core components of the apps theme
+//for android
+$toolbar-md-background: color($colors, primary);
+$tabs-md-background: color($colors, primary);
+$tabs-md-tab-color-active: color($colors, light);
+$tabs-md-tab-text-color: color($colors, light);
+$tabs-md-tab-color-inactive: color($colors, dark);
+// for ios
+$toolbar-ios-background: color($colors, primary);
+$tabs-ios-background: color($colors, primary);
+$tabs-ios-tab-color-active: color($colors, light);
+$tabs-ios-tab-text-color: color($colors, light);
+$tabs-ios-tab-color-inactive: color($colors, dark);
+
+@import "ionic.theme.default";
+@import "ionic.ionicons";
+@import "roboto";
+@import "noto-sans";

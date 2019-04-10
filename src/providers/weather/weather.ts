@@ -11,7 +11,7 @@ export class WeatherProvider {
   constructor(public http: HttpClient)
   {
     console.log('Hello WeatherProvider Provider');
-    //this.url = 'http://api.openweathermap.org/data/2.5/weather?q=dublin,Ireland&APPID=b90245073a8392aec69a261861286c3b';
+    //this.url = 'http://api.openweathermap.org/data/2.5/weather?q=dublin,IE&APPID=b90245073a8392aec69a261861286c3b';
 
   }
 

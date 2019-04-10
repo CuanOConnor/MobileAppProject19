@@ -4,6 +4,18 @@
   color: color($colors, light);
 }
 
+.planContainer{
+    margin-top: 30px;
+    background: color($colors, secondary);
+    color: color($colors, light);
+}
+
+.settingContainer{
+    margin-top: 30px;
+    background: color($colors, secondary);
+    color: color($colors, light);
+}
+
 .toolbar-title{
     text-align: center;
 }

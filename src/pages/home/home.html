@@ -5,5 +5,11 @@
 </ion-header>
 
 <ion-content padding class="homeContainer">
-  <h1>This is the HomePage...home</h1>
+  <ion-grid *ngIf="weather">
+    <ion-row>
+      <ion-col width-50 offset-25>
+        <h2 class="location">{{weather.Clouds}}</h2>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

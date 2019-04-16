@@ -6,6 +6,9 @@
 
 <ion-content padding class="homeContainer">
   <ion-list>
+    <ion-item>
+      {{cityData}}
+    </ion-item>
     <ion-item *ngFor="let x of weather">
       {{x.main}}
     </ion-item>
@@ -13,7 +16,7 @@
       {{x.description}}
     </ion-item>
   </ion-list>
-  <ion-img *ngFor="let x of weather">
-    {{x.iconImage}}
-  </ion-img>
+
+  <ion-img id="iconHolder" height=56 width=56 src={{iconURL}}></ion-img>
+ 
 </ion-content>

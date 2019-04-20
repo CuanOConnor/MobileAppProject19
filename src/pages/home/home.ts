@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { WeatherProvider } from '../../providers/weather/weather';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'page-home',
@@ -18,72 +19,81 @@ export class HomePage
 
   iconID: any;
   iconURL: string;
+  temperature: any;
 
-  constructor(public navCtrl: NavController, private weatherProvider:WeatherProvider) 
+  constructor(public navCtrl: NavController, private weatherProvider:WeatherProvider, private storage:Storage) 
   {
 
   }
 
   ionViewWillEnter()
   {
+    this.storage.get('location').then((val)=>{
+      if(val != null)
+      {
+        this.location = JSON.parse(val);
+      }
+      else
+      {
+        this.location = {city: 'dublin', country: 'IE'}
+      }
+
+      this.weatherProvider.getWeather(this.location.city, this.location.country).subscribe(weather => {
+        this.weather = weather.weather;
+        this.cityData = weather.name;
+        this.iconID = weather.weather[0].icon;
+        this.temperature = weather.main.temp;
+        this.temperature = this.temperature-273.15;
+        //console.log(this.iconID);
     
-    this.location = {city: 'dublin', country: 'Ireland'}
+        // adding all icon IDs as if conditions to send XXX.png's to home.html
+        // Thunderstorms
+        if(this.iconID == "11d")
+        {
+          this.iconURL = "assets/imgs/thunder.png";
+        }
+        // Drizzle
+        else if(this.iconID == "09d")
+        {
+          this.iconURL = "assets/imgs/rain.png";
+        }
+        // Rain
+        else if(this.iconID == "10d")
+        {
+          this.iconURL = "assets/imgs/rain.png";
+        }
+        // Snow
+        else if(this.iconID == "13d")
+        {
+          this.iconURL = "assets/imgs/snow.png";
+        }
+        // Atmosphere
+        else if(this.iconID == "50d")
+        {
+          this.iconURL = "assets/imgs/fog.png";
+        }
+        // Clear 
+        else if(this.iconID == "01d")
+        {
+          this.iconURL = "assets/imgs/clear.png";
+        }
+        // Clouds
+        else if(this.iconID == "02d")
+        {
+          this.iconURL = "assets/imgs/clouds.png";
+        }
+        else if(this.iconID == "03d")
+        {
+          this.iconURL = "assets/imgs/clouds.png";
+        }
+        else if(this.iconID == "04d")
+        {
+          this.iconURL = "assets/imgs/clouds.png";
+        }
 
-    this.weatherProvider.getWeather(this.location.city, this.location.country).subscribe(weather => {
-    this.weather = weather.weather;
-    this.cityData = weather.name;
-    this.iconID = weather.icon;
-    //console.log(this.iconID);
+      }); //weather func
 
-   }); //weather func
-  
-   // adding all icon IDs as if conditions to send XXX.png's to home.html using http://openweathermap.org/img/w/XXX.png 
-    // Thunderstorms
-    if(this.iconID == "11d")
-    {
-      this.iconURL = "http://openweathermap.org/img/w/11d.png";
-    }
-    // Drizzle
-    else if(this.iconID == "09d")
-    {
-      this.iconURL = "http://openweathermap.org/img/w/09d.png";
-    }
-    // Rain
-    else if(this.iconID == "10d")
-    {
-      this.iconURL = "http://openweathermap.org/img/w/10d.png";
-    }
-    // Snow
-    else if(this.iconID == "13d")
-    {
-      this.iconURL = "http://openweathermap.org/img/w/13d.png";
-    }
-    // Atmosphere
-    else if(this.iconID == "50d")
-    {
-      this.iconURL = "http://openweathermap.org/img/w/50d.png";
-    }
-    // Clear 
-    else if(this.iconID == "01d")
-    {
-      this.iconURL = "http://openweathermap.org/img/w/01d.png";
-    }
-    // Clouds
-    else if(this.iconID == "02d")
-    {
-      this.iconURL = "http://openweathermap.org/img/w/02d.png";
-    }
-    else if(this.iconID == "03d")
-    {
-      this.iconURL = "http://openweathermap.org/img/w/03d.png";
-    }
-    else if(this.iconID == "04d")
-    {
-      this.iconURL = "http://openweathermap.org/img/w/04d.png";
-    }
+    });//storage.get() + function
 
   }// ionViewWillEnter
-
-    
-
 }// HomePage

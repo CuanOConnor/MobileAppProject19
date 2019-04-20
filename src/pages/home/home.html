@@ -5,18 +5,24 @@
 </ion-header>
 
 <ion-content padding class="homeContainer">
-  <ion-list>
-    <ion-item>
+  <div id="weatherImg">
+    <img id="iconHolder" height=150 width=150 src={{iconURL}}>
+  </div>
+  <div class="weatherData">
+    <h3>
       {{cityData}}
-    </ion-item>
-    <ion-item *ngFor="let x of weather">
+    </h3>
+    <h3 *ngFor="let x of weather">
       {{x.main}}
-    </ion-item>
-    <ion-item *ngFor="let x of weather">
+    </h3>
+    <h3 *ngFor="let x of weather">
       {{x.description}}
-    </ion-item>
-  </ion-list>
+    </h3>
+    <h3>
+      {{temperature | number:'1.2-2'}} °C
+      </h3>
+  </div>
 
-  <ion-img id="iconHolder" height=56 width=56 src={{iconURL}}></ion-img>
+  
  
 </ion-content>

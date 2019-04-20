@@ -1,21 +1,45 @@
-.homeContainer{
+.homeContainer
+{
   margin-top: 30px;
   background: color($colors, secondary);
   color: color($colors, light);
 }
 
-.planContainer{
+.planContainer
+{
     margin-top: 30px;
     background: color($colors, secondary);
     color: color($colors, light);
 }
 
-.settingContainer{
+.settingContainer
+{
     margin-top: 30px;
     background: color($colors, secondary);
     color: color($colors, light);
 }
 
-.toolbar-title{
+.toolbar-title
+{
     text-align: center;
+}
+
+#weatherImg
+{
+    padding-left: 75px;
+    padding-bottom: 20px;
+}
+
+.weatherData
+{
+    background-color: #e71a1a;
+    border:solid 3px;
+    padding: 15px 0px 0px 0px;
+}
+
+.weatherData h3
+{
+    font-size: 25px;
+    padding-left: 68px; 
+    margin:0 0 30px 0; 
 }

@@ -12,6 +12,7 @@ import { SettingsPage } from '../pages/settings/settings';
 import { PlannerPage } from '../pages/planner/planner';
 import { TabsPage } from '../pages/tabs/tabs';
 import { WeatherProvider } from '../providers/weather/weather';
+import { IonicStorageModule } from '@ionic/storage';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { WeatherProvider } from '../providers/weather/weather';
     BrowserModule,
     HttpModule,
     HttpClientModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot()
     
   ],
   bootstrap: [IonicApp],
@@ -41,7 +43,8 @@ import { WeatherProvider } from '../providers/weather/weather';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    WeatherProvider
+    WeatherProvider,
+    IonicStorageModule
   ]
 })
 export class AppModule {}

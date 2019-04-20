@@ -18,7 +18,7 @@ export class WeatherProvider {
   // getting weather info from API with a custom city and country
   getWeather(city, country):Observable<any> 
   {
-    return this.http.get('https://api.openweathermap.org/data/2.5/weather?q='+city+','+country+'&APPID='+this.apiKey);
+    return this.http.get('https://api.openweathermap.org/data/2.5/weather?q='+city+','+country+'&units=metric'+'&APPID='+this.apiKey);
   }
 
 }

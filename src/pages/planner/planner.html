@@ -2,8 +2,12 @@
   <ion-navbar>
     <ion-title>Planner</ion-title>
   </ion-navbar>
+  
 </ion-header>
 
 <ion-content padding class="planContainer">
-  <h1>This is the PlannerPage...planner</h1>
+  <button ion-button (click)="addNote()">Add Note</button>
+  <ion-list>
+    <button ion-item *ngFor="let note of notes">{{note.title}}</button>
+  </ion-list>
 </ion-content>

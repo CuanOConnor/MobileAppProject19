@@ -1,12 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the PlannerPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { AddNotePage } from '../add-note/add-note';
+import { NoteProvider } from '../../providers/note/note';
 
 @IonicPage()
 @Component({
@@ -15,11 +10,26 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class PlannerPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  notes: {title: string}[] = [];
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, private noteProvider: NoteProvider)
+  {
+     
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad PlannerPage');
+  addNote()
+  {
+    this.navCtrl.push(AddNotePage);
+  }
+
+  getAllNotes()
+  {
+    return this.noteProvider.getAllNotes();
+  }
+ 
+  ionViewWillEnter()
+  {
+    this.notes = this.getAllNotes();
   }
 
 }

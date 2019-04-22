@@ -43,7 +43,6 @@ export class HomePage
         this.cityData = weather.name;
         this.iconID = weather.weather[0].icon;
         this.temperature = weather.main.temp;
-        this.temperature = this.temperature-273.15;
         //console.log(this.iconID);
     
         // adding all icon IDs as if conditions to send XXX.png's to home.html
@@ -96,4 +95,5 @@ export class HomePage
     });//storage.get() + function
 
   }// ionViewWillEnter
+
 }// HomePage

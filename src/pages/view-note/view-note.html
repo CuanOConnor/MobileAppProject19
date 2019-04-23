@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>view-note</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="viewNoteContainer">
+  <ion-card>
+    <ion-card-content>
+      <ion-card-title>{{note.title}}</ion-card-title>
+      <div class="noteDate">{{note.date}}</div>
+      <div>{{note.content}}</div>
+    </ion-card-content>
+  </ion-card>
+  <button ion-button block (click)="deleteNote(note.createDate)">Delete</button>
+</ion-content>

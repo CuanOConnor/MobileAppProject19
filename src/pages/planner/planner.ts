@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AddNotePage } from '../add-note/add-note';
 import { NoteProvider } from '../../providers/note/note';
+import { Note } from '../../models/note.model';
+import { ViewNotePage } from '../view-note/view-note';
 
 @IonicPage()
 @Component({
@@ -10,9 +12,10 @@ import { NoteProvider } from '../../providers/note/note';
 })
 export class PlannerPage {
 
-  notes: {title: string}[] = [];
+  private notes: Promise<Note[]>;
+  private note: Note;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private noteProvider: NoteProvider)
+  constructor(public navCtrl: NavController, private noteProvider: NoteProvider)
   {
      
   }
@@ -30,6 +33,14 @@ export class PlannerPage {
   ionViewWillEnter()
   {
     this.notes = this.getAllNotes();
+  }
+
+  getNote(createDate: number)
+  {
+    this.noteProvider.getNote(createDate).then(n=>{
+      this.note = n;
+      this.navCtrl.push(ViewNotePage, {note: this.note});
+    });
   }
 
 }

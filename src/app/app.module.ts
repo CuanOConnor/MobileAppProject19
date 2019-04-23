@@ -15,6 +15,8 @@ import { WeatherProvider } from '../providers/weather/weather';
 import { IonicStorageModule } from '@ionic/storage';
 import { AddNotePage } from '../pages/add-note/add-note';
 import { NoteProvider } from '../providers/note/note';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ViewNotePage } from '../pages/view-note/view-note';
 
 
 @NgModule({
@@ -24,14 +26,17 @@ import { NoteProvider } from '../providers/note/note';
     SettingsPage,
     PlannerPage,
     TabsPage,
-    AddNotePage
+    AddNotePage,
+    ViewNotePage
   ],
   imports: [
     BrowserModule,
     HttpModule,
     HttpClientModule,
     IonicModule.forRoot(MyApp),
-    IonicStorageModule.forRoot()
+    IonicStorageModule.forRoot(),
+    FormsModule, 
+    ReactiveFormsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -40,7 +45,8 @@ import { NoteProvider } from '../providers/note/note';
     SettingsPage,
     PlannerPage,
     TabsPage,
-    AddNotePage
+    AddNotePage,
+    ViewNotePage
   ],
   providers: [
     StatusBar,

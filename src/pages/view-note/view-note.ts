@@ -14,6 +14,7 @@ export class ViewNotePage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private noteProvider: NoteProvider) 
   {
+    // passes a note to the view
     this.note = this.navParams.get('note');
   }
 
@@ -22,6 +23,7 @@ export class ViewNotePage {
     console.log('ionViewDidLoad ViewNotePage');
   }
 
+  // uses createDate as a number to find the note then delete
   deleteNote(createDate: number)
   {
     this.noteProvider.deleteNote(createDate);

@@ -1,3 +1,4 @@
+// Object for holding note data
 export interface Note
 {
     title: string;

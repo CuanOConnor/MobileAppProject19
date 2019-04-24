@@ -20,6 +20,7 @@ export class SettingsPage
   
   constructor(public navCtrl: NavController, public navParams: NavParams, private storage:Storage)
   {
+    // Once again checking for my weather data and parsing and setting values with a default
     this.storage.get('location').then((val)=>{
       if(val != null)
       {
@@ -40,6 +41,7 @@ export class SettingsPage
     console.log('ionViewDidLoad SettingsPage');
   }
 
+  // Saving user input location data to local storage
   saveData()
   {
     let location = 

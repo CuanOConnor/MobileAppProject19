@@ -28,6 +28,7 @@ export class HomePage
 
   ionViewWillEnter()
   {
+    // Checking for a location and parsing the JSON else adding a default value
     this.storage.get('location').then((val)=>{
       if(val != null)
       {
@@ -38,6 +39,7 @@ export class HomePage
         this.location = {city: 'dublin', country: 'IE'}
       }
 
+      // Getting API data
       this.weatherProvider.getWeather(this.location.city, this.location.country).subscribe(weather => {
         this.weather = weather.weather;
         this.cityData = weather.name;

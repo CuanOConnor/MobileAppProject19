@@ -25,6 +25,7 @@ export class PlannerPage {
     this.navCtrl.push(AddNotePage);
   }
 
+  // calls array from provider
   getAllNotes()
   {
     return this.noteProvider.getAllNotes();
@@ -35,6 +36,7 @@ export class PlannerPage {
     this.notes = this.getAllNotes();
   }
 
+  // gets promise of note and pushes the ViewNotePage with a note
   getNote(createDate: number)
   {
     this.noteProvider.getNote(createDate).then(n=>{

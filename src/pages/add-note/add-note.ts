@@ -9,8 +9,9 @@ import { FormGroup, Validators, FormControl } from '@angular/forms';
   selector: 'page-add-note',
   templateUrl: 'add-note.html',
 })
-export class AddNotePage {
-
+export class AddNotePage
+{
+  // variables to handle the form data
   formGroup: FormGroup;
   note: Note;
   date: Date = new Date();
@@ -19,7 +20,8 @@ export class AddNotePage {
 
   constructor(public navCtrl: NavController, private noteProvider: NoteProvider)
   {
-    this.formGroup = new FormGroup({
+    this.formGroup = new FormGroup
+    ({
       title: new FormControl(),
       content: new FormControl(),
       date: new FormControl()
@@ -31,6 +33,7 @@ export class AddNotePage {
     console.log('ionViewDidLoad AddNotePage');
   }
 
+  // calls in save note from provider and pops the view off the stack
   saveNote(note: Note)
   {
     this.noteProvider.saveNote(note);

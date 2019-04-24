@@ -1,1 +1,25 @@
-######################Test######################
+************************************ User Guide ************************************
+
+Upon ionic serve --lab the user will be first shown the weather
+- This is set to a default of Dubline IE 
+- It will show all the data that is called in from my API
+
+There are 3 tabs at the bottom, marked with names and icons
+- Home: for weather
+- Planner: for the note creator and viewer functionality
+- Search: which allows for input of a city and country code(can use: London GB for testing )
+
+Planner
+- will show and empty screen with a button that allows the user to add a note
+- when clicked the user can input a title and some content for the note
+- You can then click the save button to store the note
+- multiple notes can be added, saved and deleted
+- when you add a note, it will display the notes title on the planner page
+- by selecting a note you can view the content and delete it if you choose to
+
+Search
+- Brings the user a screen with 2 inputs
+- city and country
+- you can input the before mentioned data and it will display the new location on the home tab as wether data
+
+************************************************************************************
